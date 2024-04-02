@@ -1,0 +1,14 @@
+version: '3'
+services:
+  db:
+    build: .
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_USER: admin # PostgreSQL ログインユーザー
+      POSTGRES_PASSWORD: admin # PostgreSQL ログインパスワード
+    tty: true # true ： コンテナを継続起動、false ： コンテナ起動後、即停止
+    volumes:
+      - db_data:/var/lib/postgresql/data # PostgreSQL　の DB　データ保管場所
+volumes:
+  db_data: {}
